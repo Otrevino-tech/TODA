@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>TODA — Admin Panel</title>
+<link rel="stylesheet" href="css/styles.css"/>
+<link rel="stylesheet" href="css/responsive.css"/>
+<link rel="stylesheet" href="css/admin.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+</head>
+<body>
+<header class="topbar">
+  <button class="hamburger" id="hamburgerBtn"><span></span><span></span><span></span></button>
+  <h1 class="brand">👑 TODA · Admin</h1>
+  <div class="topbar-right">
+    <span class="role-badge ra" id="roleBadge">Admin</span>
+    <button class="icon-btn" id="logoutBtn" title="Logout">⎋</button>
+    <div class="user-badge" id="userBadge">T</div>
+  </div>
+</header>
+
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-header"><h2>Admin Menu</h2><button class="close-btn" id="closeSidebar">✕</button></div>
+  <nav class="sidebar-nav" id="sidebarNav">
+    <a href="/">🏠 Resident View</a>
+    <a href="#" data-tab="overview" class="active">📊 Overview</a>
+    <a href="#" data-tab="chores">🧹 Manage Chores</a>
+    <a href="#" data-tab="events">🎉 Manage Events</a>
+    <a href="#" data-tab="alerts">🚨 Manage Alerts</a>
+    <a href="#" data-tab="staff">📞 Manage Staff</a>
+    <a href="#" data-tab="files">📁 Manage Files</a>
+    <a href="#" data-tab="moderation">🚩 Moderation</a>
+    <a href="#" data-tab="users">👥 Users</a>
+    <a href="#" data-tab="danger">⚠️ Danger Zone</a>
+  </nav>
+</aside>
+<div class="overlay" id="overlay"></div>
+
+<main class="content" id="mainContent">
+  <section class="tab-panel active" id="overview">
+    <h2 class="section-title">Overview</h2>
+    <div class="stats-grid" id="statsGrid"></div>
+  </section>
+
+  <section class="tab-panel" id="chores">
+    <h2 class="section-title">Manage Chores</h2>
+    <form class="form-card inline" id="choreForm">
+      <input name="task" placeholder="Task" required/>
+      <input name="room" placeholder="Room"/>
+      <input name="assignee" placeholder="Assignee"/>
+      <input name="due" placeholder="Due (e.g. Mon)"/>
+      <button class="btn-primary">Add</button>
+    </form>
+    <div class="admin-list" id="choreAdminList"></div>
+  </section>
+
+  <section class="tab-panel" id="events">
+    <h2 class="section-title">Manage Events</h2>
+    <form class="form-card inline" id="eventForm">
+      <input name="title" placeholder="Title" required/>
+      <input name="date" placeholder="Date"/>
+      <input name="location" placeholder="Location"/>
+      <input name="description" placeholder="Description"/>
+      <button class="btn-primary">Add</button>
+    </form>
+    <div class="admin-list" id="eventAdminList"></div>
+  </section>
+
+  <section class="tab-panel" id="alerts">
+    <h2 class="section-title">Manage Alerts</h2>
+    <form class="form-card inline" id="alertForm">
+      <select name="level">
+        <option value="info">Info</option>
+        <option value="critical">Critical</option>
+      </select>
+      <input name="message" placeholder="Message" required/>
+      <input name="author" placeholder="Author"/>
+      <button class="btn-primary">Post</button>
+    </form>
+    <div class="admin-list" id="alertAdminList"></div>
+  </section>
+
+  <section class="tab-panel" id="staff">
+    <h2 class="section-title">Manage Staff</h2>
+    <form class="form-card inline" id="staffForm">
+      <input name="name" placeholder="Name" required/>
+      <input name="role" placeholder="Role"/>
+      <input name="phone" placeholder="Phone"/>
+      <input name="email" placeholder="Email"/>
+      <button class="btn-primary">Add</button>
+    </form>
+    <div class="admin-list" id="staffAdminList"></div>
+  </section>
+
+  <section class="tab-panel" id="files">
+    <h2 class="section-title">Manage Files</h2>
+    <form class="form-card inline" id="folderForm">
+      <input name="name" placeholder="New folder name" required/>
+      <button class="btn-primary">Create Folder</button>
+    </form>
+    <div id="folderAdminList" class="admin-list"></div>
+  </section>
+
+  <section class="tab-panel" id="moderation">
+    <h2 class="section-title">Moderation Queue</h2>
+    <div id="moderationList" class="admin-list"></div>
+  </section>
+
+  <section class="tab-panel" id="users">
+    <h2 class="section-title">Users</h2>
+    <div id="userList" class="admin-list"></div>
+  </section>
+
+  <section class="tab-panel" id="danger">
+    <h2 class="section-title">Danger Zone</h2>
+    <div class="card danger-card">
+      <h3>Reset all dorm data</h3>
+      <p>Deletes chores, events, alerts, staff, forum posts, folders and check-ins. Users remain.</p>
+      <button class="btn-danger" id="resetBtn">Reset Dorm Data</button>
+    </div>
+  </section>
+</main>
+
+<script src="js/api.js"></script>
+<script src="js/tabs.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>
