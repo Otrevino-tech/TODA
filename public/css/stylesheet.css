@@ -62,14 +62,12 @@ body {
 }
 
 .user-badge {
-  background: var(--gold);
-  color: var(--purple-dark);
-  font-weight: 700;
+  display: flex; 
+  /* background: var(--gold-light);  */
+  color: var(--purple-light); 
+  width: 45px; height: 45px; 
   border-radius: 50%;
-  width: 38px;
-  height: 38px;
-  display: grid;
-  place-items: center;
+  
 }
 
 .role-badge {
